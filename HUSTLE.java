@@ -4,40 +4,44 @@ public class HUSTLE {
 public int frame1, frame2;
 public HUSTLE first;
 public HUSTLE next;
+public String Rollpunch, Bflash,Mankick,Dropkick;
 
-    public HUSTLE(int frame1,int frame2)
+    public HUSTLE(int frame1,String Bflash)
     {
         this.frame1 = frame1;
-        this.frame2 = frame2;
+        this.Bflash = Bflash;
         this.next = null;
     }
 
-    public void add(int frame1,int frame2)
+    public void add(int frame1,String Bflash)
     {
-        HUSTLE newLink = new HUSTLE(frame1, frame2);
+        HUSTLE newLink = new HUSTLE(frame1,Bflash);
         newLink.next = first;
         first = newLink;
     }
-    public static void main(String[] args) {
-        System.out.println("Welcome to HUSTLE!");
 
-
-        HUSTLE link = new HUSTLE(0,0);
-        int frame1 = 30;
-        int frame2 = 50;
-        link.add(frame1,frame2);
-        link.print();
-    }
     public  void print () {
         HUSTLE current = first;
         while (current != null) {
-            System.out.println(current.frame1 + "," + current.frame2);
+            System.out.println("Frames: " + current.frame1 + "," + "Attack: " + current.Bflash);
             System.out.println("---------");
             current = current.next;// Move to the next
 
         }
     }
 
+    public void decision()
+    {
+        int temp;
+        HUSTLE current = first;
+        while (current != null) {
+            temp = current.frame1;
+            current = current.next;
+            if(temp == current.frame1)
+                System.out.println(current.Bflash);
+
+        }
+    }
 /*IDEA:
 USE A LINKED LIST THAT STORES ALL CHARACTER DATA(NAME,MOVE FRAME DATA, MOVE NAME)
 E.G LINK LIST CHARACTER
@@ -70,5 +74,17 @@ PRINT OUT WHICH PLAYER/CHAR/YOUR MOTHER THAT WINS THE EXCHANGE
         else
             System.out.println("TIED");
 
+    }
+    public static void main(String[] args) {
+        System.out.println("Welcome to HUSTLE!");
+        HUSTLE link = new HUSTLE(0,"N/A");
+        int frame1 = 30;
+        int frame2 = 50;
+        String Rollpunch = "ROLL THE PUNCH!";
+        String Bflash = "BLACK FLASH!";
+        link.add(frame1,Bflash);
+        link.add(frame2,Rollpunch);
+        link.print();
+        link.decision();
     }
 }
