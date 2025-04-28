@@ -1,0 +1,12 @@
+Yuji Itadori,Black Flash,19
+Yuji Itadori,Divergent Fist,15
+Yuji Itadori,jab,4
+Yuji Itadori,uppercut,6
+Yuji Itadori,rage dash,8
+Yuji Itadori,Handspring Kick,15
+Hakari Kinji,Roll The Punch,24
+Hakari Kinji,Dropkick,18
+Hakari Kinji,Rough energy,11
+Hakari Kinji,Jump Kick,6
+Hakari Kinji,Dropkick,12
+Hakari Kinji,FaceBreaker,8
