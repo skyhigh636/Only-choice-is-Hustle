@@ -6,11 +6,12 @@
 import java.lang.Math;
 import java.io.*;
 import java.util.*;
+import javax.swing.JOptionPane;
+
 
 public class HustleDataLoader {
     public static void main(String[] args) {
         Map<String, Character> characters = new HashMap<>();
-
         try (BufferedReader br = new BufferedReader(new FileReader("moves.txt"))) {
             /*
                 first time actually using file readers
@@ -29,7 +30,7 @@ public class HustleDataLoader {
             System.out.println("Error reading file: " + e.getMessage());
         }
 
-        // Example: Compare 1st move of two characters
+
         Character yuji = characters.get("Yuji Itadori");
         Character hakari = characters.get("Hakari Kinji");
         int i = 0;
@@ -38,36 +39,65 @@ public class HustleDataLoader {
         int min = 0;
         int range = yujilength + 1 - 1;
 
+        Fight(yuji, hakari, range, min, i, yujilength, hakarilength);
+    }
+    public static void Fight(Character yuji, Character hakari, int range, int min, int i, int yujilength, int hakarilength) {
         do {
-
             int random = (int) (Math.random() * range) + min;
             int random2 = (int) (Math.random() * range) + min;
-
-            System.out.println(random);
-            System.out.println(random2);
             move yujiMove = yuji.moves.get(random);
             move hakariMove = hakari.moves.get(random2);
 
-            System.out.println("Comparing:");
+            System.out.println("NEUTRAL:");
             System.out.println(yuji.name + " - " + yujiMove.name + ": " + yujiMove.frames);
             System.out.println(hakari.name + " - " + hakariMove.name + ": " + hakariMove.frames);
 
-            if (yujiMove.frames < hakariMove.frames)
+            if (yujiMove.frames < hakariMove.frames) {
                 System.out.println(yuji.name + " wins the exchange!");
-            else if (yujiMove.frames > hakariMove.frames)
+                System.out.println("Combo starts now!");
+                System.out.println("******************");
+                combo(yuji, i);
+            } else if (yujiMove.frames > hakariMove.frames) {
                 System.out.println(hakari.name + " wins the exchange!");
-            else
+                System.out.println("Combo starts now!");
+                System.out.println("******************");
+                combo(hakari, i);
+            } else {
                 System.out.println("Exchange is tied!");
+                System.out.println("******************");
+            }
             i++;
-        } while (yuji != null && hakari != null && i < yujilength && i < hakarilength);
+        } while (i < yujilength && i < hakarilength);
+    }
+
+    /**
+     * @param character
+     * @param i
+     */
+    public static void combo(Character character, int i) {
+        int length = character.moves.size();
+        int min = 0;
+        int range = length + 1 - 1;
+
+        do {
+
+            int random = (int) (Math.random() * range) + min;
+            move charMove = character.moves.get(random);
+            System.out.println(character.name + " - " + charMove.name);
+
+
+            i++;
+        } while ( i < length);
+        System.out.println("Combo End");
+        System.out.println("******************");
     }
 }
-/* TODO UP... IDK?
-    as it stands itll read through the text file (long as its formatted correctly)
-    but its a lot of typing to actually fill out a whole characters moveset,
-    consequence of the idea i suppose.
-    JoptionPane?
 
-    math.random? -- DONE and working
-    Man i gotta figure out how to better send these files to github without manually uploading them
+/* TODO UP... IDK?
+    JoptionPane for a GUI?
+    Finish up character movesets?
+    User input for character movesets?
+    User input for amount of exchanges
+    construct the character in a class?
  */
+//math.random? -- DONE and working
