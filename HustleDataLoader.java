@@ -6,7 +6,7 @@
 import java.lang.Math;
 import java.io.*;
 import java.util.*;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 
 public class HustleDataLoader {
@@ -41,7 +41,9 @@ public class HustleDataLoader {
 
         Fight(yuji, hakari, range, min, i, yujilength, hakarilength);
     }
+
     public static void Fight(Character yuji, Character hakari, int range, int min, int i, int yujilength, int hakarilength) {
+        int j = 0;
         do {
             int random = (int) (Math.random() * range) + min;
             int random2 = (int) (Math.random() * range) + min;
@@ -56,12 +58,13 @@ public class HustleDataLoader {
                 System.out.println(yuji.name + " wins the exchange!");
                 System.out.println("Combo starts now!");
                 System.out.println("******************");
-                combo(yuji, i);
+                System.out.println(yujiMove.frames);
+                combo(yuji, j, yujiMove.frames);
             } else if (yujiMove.frames > hakariMove.frames) {
                 System.out.println(hakari.name + " wins the exchange!");
                 System.out.println("Combo starts now!");
                 System.out.println("******************");
-                combo(hakari, i);
+                combo(hakari, j, hakariMove.frames);
             } else {
                 System.out.println("Exchange is tied!");
                 System.out.println("******************");
@@ -70,26 +73,25 @@ public class HustleDataLoader {
         } while (i < yujilength && i < hakarilength);
     }
 
-    /**
-     * @param character
-     * @param i
-     */
-    public static void combo(Character character, int i) {
+
+    public static void combo(Character character, int j, int frames) {
         int length = character.moves.size();
         int min = 0;
         int range = length + 1 - 1;
+        frames = frames * 2;
 
         do {
 
             int random = (int) (Math.random() * range) + min;
             move charMove = character.moves.get(random);
+            frames = frames - charMove.frames;
             System.out.println(character.name + " - " + charMove.name);
 
 
-            i++;
-        } while ( i < length);
+        } while (frames  >= 0);
         System.out.println("Combo End");
         System.out.println("******************");
+
     }
 }
 
