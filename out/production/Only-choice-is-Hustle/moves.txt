@@ -4,9 +4,29 @@ Yuji Itadori,jab,4
 Yuji Itadori,uppercut,6
 Yuji Itadori,rage dash,8
 Yuji Itadori,Handspring Kick,15
+Yuji Itadori,Power Slam,14
+Yuji Itadori,Spinning Elbow,10
+Yuji Itadori,Shadow Step,7
+Yuji Itadori,Crushing Blow,16
+Yuji Itadori,Quick Jab,5
+Yuji Itadori,Overhead Smash,13
+Yuji Itadori,Leg Sweep,9
+Yuji Itadori,Counter Strike,12
+Yuji Itadori,Backflip Kick,11
+Yuji Itadori,Iron Fist,17
 Hakari Kinji,Roll The Punch,24
 Hakari Kinji,Dropkick,18
 Hakari Kinji,Rough energy,11
 Hakari Kinji,Jump Kick,6
 Hakari Kinji,Dropkick,12
 Hakari Kinji,FaceBreaker,8
+Hakari Kinji,Lucky Palm,15
+Hakari Kinji,Energy Burst,13
+Hakari Kinji,Guard Breaker,10
+Hakari Kinji,Spiral Kick,12
+Hakari Kinji,Heavy Stomp,16
+Hakari Kinji,Flash Strike,8
+Hakari Kinji,Gambler Punch,14
+Hakari Kinji,Phantom Step,9
+Hakari Kinji,Double Uppercut,11
+Hakari Kinji,Wild Hook,17

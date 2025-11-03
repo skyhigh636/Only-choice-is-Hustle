@@ -56,9 +56,9 @@ public class HustleDataLoader {
 
             if (yujiMove.frames < hakariMove.frames) {
                 System.out.println(yuji.name + " wins the exchange!");
+                hakari.health = hakari.health - yujiMove.frames;
                 System.out.println("Combo starts now!");
                 System.out.println("******************");
-                System.out.println(yujiMove.frames);
                 combo(yuji, j, yujiMove.frames);
             } else if (yujiMove.frames > hakariMove.frames) {
                 System.out.println(hakari.name + " wins the exchange!");
@@ -69,8 +69,11 @@ public class HustleDataLoader {
                 System.out.println("Exchange is tied!");
                 System.out.println("******************");
             }
-            i++;
-        } while (i < yujilength && i < hakarilength);
+            if(yuji.health <= 0 || hakari.health <= 0){
+                break;
+            }
+            j++;
+        } while (yuji.health > 0|| hakari.health > 0);
     }
 
 
@@ -78,17 +81,25 @@ public class HustleDataLoader {
         int length = character.moves.size();
         int min = 0;
         int range = length + 1 - 1;
-        frames = frames * 2;
+        if(frames < 10){
+            frames = frames *2;
+        }
+        else
+            frames = frames * 3;
 
         do {
 
             int random = (int) (Math.random() * range) + min;
             move charMove = character.moves.get(random);
             frames = frames - charMove.frames;
+            character.health = character.health - frames;
+            if(character.health <= 0)
+                break;
             System.out.println(character.name + " - " + charMove.name);
+            System.out.println("Health: " + character.health);
 
 
-        } while (frames  >= 0);
+        } while (frames >= 0);
         System.out.println("Combo End");
         System.out.println("******************");
 
