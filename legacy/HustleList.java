@@ -1,3 +1,4 @@
+package legacy;
 // This class represents the linked list itself
 public class HustleList {
     private HustleNode head;

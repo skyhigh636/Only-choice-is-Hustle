@@ -1,6 +1,8 @@
+package create.character;
+
 import java.util.ArrayList;
 import java.util.List;
-
+import create.move.move;
 public class Character {
     public String name;
 

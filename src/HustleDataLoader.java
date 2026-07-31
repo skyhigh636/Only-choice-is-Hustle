@@ -3,16 +3,16 @@
  * @date 25/04/2025
  */
 
-import java.lang.Math;
+import create.character.Character;
+import create.move.move;
 import java.io.*;
 import java.util.*;
-import javax.swing.*;
 
 
 public class HustleDataLoader {
     public static void main(String[] args) {
         Map<String, Character> characters = new HashMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("moves.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("/home/emmy/Only-choice-is-Hustle/src/moves.txt"))) {
             /*
                 first time actually using file readers
              */

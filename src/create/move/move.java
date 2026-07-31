@@ -1,3 +1,6 @@
+
+package create.move;
+
 public class move {
     public String name;
     public int frames;

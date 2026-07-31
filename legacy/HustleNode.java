@@ -1,3 +1,4 @@
+package legacy;
 // This class represents a single node in the linked list
 public class HustleNode {
     public int frame;
