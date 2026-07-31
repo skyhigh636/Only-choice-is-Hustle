@@ -1,5 +1,4 @@
-## Despite being made on a complete whim, I'm quite proud of how this is going
-## Potential additions
-setup a server and player for user inputs
-some form of GUI 
-finish up current character movesets/add new ones
+# ONLY CHOICE IS TO HUSTLE
+  - (probably) text based variation on YOMI hustle
+  - Will have some proper GUI for exchanges, characters, health and more
+
