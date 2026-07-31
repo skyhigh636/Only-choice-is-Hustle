@@ -8,7 +8,6 @@ import create.move.move;
 import java.io.*;
 import java.util.*;
 
-
 public class HustleDataLoader {
     public static void main(String[] args) {
         Map<String, Character> characters = new HashMap<>();
@@ -38,11 +37,13 @@ public class HustleDataLoader {
         int hakarilength = hakari.moves.size();
         int min = 0;
         int range = yujilength + 1 - 1;
+        Scanner scan = new Scanner(System.in);
+        int exchanges = scan.nextInt();
 
-        Fight(yuji, hakari, range, min, i, yujilength, hakarilength);
+        Fight(yuji, hakari, range, min, i, yujilength, hakarilength,exchanges);
     }
 
-    public static void Fight(Character yuji, Character hakari, int range, int min, int i, int yujilength, int hakarilength) {
+    public static void Fight(Character yuji, Character hakari, int range, int min, int i, int yujilength, int hakarilength, int exchanges) {
         int j = 0;
         do {
             int random = (int) (Math.random() * range) + min;
@@ -56,7 +57,6 @@ public class HustleDataLoader {
 
             if (yujiMove.frames < hakariMove.frames) {
                 System.out.println(yuji.name + " wins the exchange!");
-                hakari.health = hakari.health - yujiMove.frames;
                 System.out.println("Combo starts now!");
                 System.out.println("******************");
                 combo(yuji, j, yujiMove.frames);
@@ -73,7 +73,9 @@ public class HustleDataLoader {
                 break;
             }
             j++;
-        } while (yuji.health > 0|| hakari.health > 0);
+        } while (j < exchanges);
+
+        System.out.println("Finish!!");
     }
 
 
@@ -96,7 +98,6 @@ public class HustleDataLoader {
             if(character.health <= 0)
                 break;
             System.out.println(character.name + " - " + charMove.name);
-            System.out.println("Health: " + character.health);
 
 
         } while (frames >= 0);
@@ -108,9 +109,4 @@ public class HustleDataLoader {
 
 /* TODO UP... IDK?
     JoptionPane for a GUI?
-    Finish up character movesets?
-    User input for character movesets?
-    User input for amount of exchanges
-    construct the character in a class?
  */
-//math.random? -- DONE and working
