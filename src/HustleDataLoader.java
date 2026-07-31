@@ -41,6 +41,7 @@ public class HustleDataLoader {
         int exchanges = scan.nextInt();
 
         Fight(yuji, hakari, range, min, i, yujilength, hakarilength,exchanges);
+        scan.close();
     }
 
     public static void Fight(Character yuji, Character hakari, int range, int min, int i, int yujilength, int hakarilength, int exchanges) {
@@ -69,12 +70,10 @@ public class HustleDataLoader {
                 System.out.println("Exchange is tied!");
                 System.out.println("******************");
             }
-            if(yuji.health <= 0 || hakari.health <= 0){
-                break;
-            }
+
             j++;
         } while (j < exchanges);
-
+        
         System.out.println("Finish!!");
     }
 
@@ -95,8 +94,7 @@ public class HustleDataLoader {
             move charMove = character.moves.get(random);
             frames = frames - charMove.frames;
             character.health = character.health - frames;
-            if(character.health <= 0)
-                break;
+
             System.out.println(character.name + " - " + charMove.name);
 
 
